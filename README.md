@@ -1,4 +1,4 @@
-Copyright (C) 2018 CarbonRom
+Copyright (C) 2018 LineageOS
 
 The MI A2 (codenamed _"jasmine"_) is a mid-range phone from Xiaomi.
 

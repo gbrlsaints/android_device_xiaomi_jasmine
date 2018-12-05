@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 CarbonROM
+# Copyright (C) 2018 LineageOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,30 +21,23 @@
 # definition file).
 #
 
-# Inherit device configuration
-$(call inherit-product, device/xiaomi/jasmine/device.mk)
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit Carbon GSM telephony parts
-$(call inherit-product, vendor/carbon/config/gsm.mk)
+# Inherit from jasmine device
+$(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit Carbon product configuration
-$(call inherit-product, vendor/carbon/config/common.mk)
-
-# CarbonRom Maintainer
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carbon.maintainer="Rcstar6696"
-
-TARGET_VENDOR_PRODUCT_NAME := jasmine
+PRODUCT_NAME := lineage_jasmine
+PRODUCT_BRAND := Xiaomi
+PRODUCT_DEVICE := jasmine
+PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_MODEL := Mi A2
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE="jasmine" \
+    PRODUCT_NAME="jasmine" \
     PRIVATE_BUILD_DESC="jasmine-user 8.1.0 OPM1.171019.011 V9.6.16.0.ODIMIFE release-keys"
 
 BUILD_FINGERPRINT := "xiaomi/jasmine/jasmine_sprout:8.1.0/OPM1.171019.011/V9.6.16.0.ODIMIFE:user/release-keys"
 
-# Device identifier
-PRODUCT_BRAND := Android
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_PLATFORM := SDM660l
-PRODUCT_NAME := carbon_jasmine
-PRODUCT_DEVICE := jasmine
-PRODUCT_MODEL := MI A2 (CarbonROM)
+TARGET_VENDOR_PRODUCT_NAME := jasmine

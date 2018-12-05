@@ -21,8 +21,8 @@
 # definition file).
 #
 
- # Inherit the fusion-common definitions
- $(call inherit-product, device/xiaomi/sdm660-common/platform.mk)
+# Inherit the fusion-common definitions
+$(call inherit-product, device/xiaomi/sdm660-common/platform.mk)
  
 # A/B
 AB_OTA_UPDATER := true
@@ -44,7 +44,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
-    bootctrl.sdm660 \
+    bootctrl.sdm660
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.sdm660 \
@@ -70,11 +70,12 @@ $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
- DEVICE_PATH := device/xiaomi/jasmine
+DEVICE_PATH := device/xiaomi/jasmine
  
  # Overlays
- DEVICE_PACKAGE_OVERLAYS += \
-     $(DEVICE_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-lineage
 
 # Device properties
 $(call inherit-product, $(DEVICE_PATH)/device_prop.mk)
@@ -97,7 +98,6 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
     $(DEVICE_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml
 
-
 # Media
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -105,17 +105,16 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml \
     $(DEVICE_PATH)/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     $(DEVICE_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-    $(DEVICE_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    $(DEVICE_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # Init
  PRODUCT_PACKAGES += \
  	libinit_jasmine
-     
+
 # Sensors
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
 
-     
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
@@ -123,9 +122,9 @@ PRODUCT_COPY_FILES += \
     
 # Lights
  PRODUCT_PACKAGES += \
-     android.hardware.light@2.0-service.xiaomi_jasmine
+    android.hardware.light@2.0-service.xiaomi_jasmine
 
-# Ramdisk     
+# Ramdisk
  PRODUCT_PACKAGES += \
     init.goodix.sh \
     init.jasmine.rc
@@ -152,7 +151,7 @@ TARGET_SCREEN_WIDTH := 1080
 $(call inherit-product, vendor/xiaomi/jasmine/jasmine-vendor.mk)
 
 # Set those variables here to overwrite the inherited values.
- PRODUCT_NAME := aosp_jasmine
+ PRODUCT_NAME := lineage_jasmine
  PRODUCT_DEVICE := jasmine
  PRODUCT_MODEL := Mi A2 (AOSP)
  PRODUCT_BRAND := Xiaomi
