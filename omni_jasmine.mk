@@ -21,13 +21,22 @@
 # definition file).
 #
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Boot animation resolution
+TARGET_BOOTANIMATION_SIZE := 1080p
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from jasmine device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-PRODUCT_NAME := lineage_jasmine
+PRODUCT_NAME := omni_jasmine
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := jasmine
 PRODUCT_MANUFACTURER := Xiaomi

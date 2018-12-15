@@ -74,8 +74,7 @@ DEVICE_PATH := device/xiaomi/jasmine
  
  # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay \
-    $(DEVICE_PATH)/overlay-lineage
+    $(DEVICE_PATH)/overlay
 
 # Device properties
 $(call inherit-product, $(DEVICE_PATH)/device_prop.mk)
@@ -151,7 +150,7 @@ TARGET_SCREEN_WIDTH := 1080
 $(call inherit-product, vendor/xiaomi/jasmine/jasmine-vendor.mk)
 
 # Set those variables here to overwrite the inherited values.
- PRODUCT_NAME := lineage_jasmine
+ PRODUCT_NAME := omni_jasmine
  PRODUCT_DEVICE := jasmine
  PRODUCT_MODEL := Mi A2 (AOSP)
  PRODUCT_BRAND := Xiaomi
